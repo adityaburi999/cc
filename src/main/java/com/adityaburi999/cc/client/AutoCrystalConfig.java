@@ -29,8 +29,8 @@ public class AutoCrystalConfig {
                 if (loaded != null) {
                     config = loaded;
                 }
-            } catch (IOException ignored) {
-                LOGGER.warn("Failed to load config, using defaults.", ignored);
+            } catch (IOException e) {
+                LOGGER.warn("Failed to load config, using defaults.", e);
                 config = new AutoCrystalConfig();
             }
         }
@@ -45,8 +45,8 @@ public class AutoCrystalConfig {
             try (Writer writer = Files.newBufferedWriter(CONFIG_PATH)) {
                 GSON.toJson(this, writer);
             }
-        } catch (IOException ignored) {
-            LOGGER.warn("Failed to save config.", ignored);
+        } catch (IOException e) {
+            LOGGER.warn("Failed to save config.", e);
         }
     }
 
