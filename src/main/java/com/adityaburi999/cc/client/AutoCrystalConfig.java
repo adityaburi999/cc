@@ -8,10 +8,13 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import net.fabricmc.loader.api.FabricLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AutoCrystalConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cc.json");
+    private static final Logger LOGGER = LoggerFactory.getLogger("CrystalClicker");
 
     public boolean enabled = true;
     public double maxCps = 12.0;
@@ -27,6 +30,7 @@ public class AutoCrystalConfig {
                     config = loaded;
                 }
             } catch (IOException ignored) {
+                LOGGER.warn("Failed to load config, using defaults.", ignored);
                 config = new AutoCrystalConfig();
             }
         }
@@ -42,7 +46,7 @@ public class AutoCrystalConfig {
                 GSON.toJson(this, writer);
             }
         } catch (IOException ignored) {
-            // Swallow to avoid crashing the client on save issues.
+            LOGGER.warn("Failed to save config.", ignored);
         }
     }
 
