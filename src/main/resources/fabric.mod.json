@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "cc",
+  "version": "${version}",
+  "name": "Crystal Clicker",
+  "description": "Auto crystal helper with configurable humanized patterns.",
+  "authors": [
+    "adityaburi999"
+  ],
+  "contact": {
+    "sources": "https://github.com/adityaburi999/cc"
+  },
+  "license": "All Rights Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.adityaburi999.cc.client.AutoCrystalClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric": "*",
+    "minecraft": "1.21.4"
+  }
+}

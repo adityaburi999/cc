@@ -1,1 +1,15 @@
-You have to make a crystal pvp mod (1.21.4), for auto crystal. it crystals when held right-click on a obsidian or bedrock when holding crystal in main hand. The thing you have to do is human patterns -i.e. you have to make that there is variable crystal speed, misclicks, I want starting crystal to start with double right click and then left and right click alternating, I want a option to customize the max speed of crystal per second. Pr you can say I want it to be undetectable and also make GitHub workflow to build it.
+# Crystal Clicker (Fabric 1.21.4)
+
+Client-side auto crystal helper with configurable humanized patterns.
+
+## Features
+- Places crystals when holding right-click on obsidian or bedrock with an end crystal in the main hand.
+- Starts with a double right-click, then alternates left/right clicks.
+- Randomized speed with misclicks and a configurable maximum crystals-per-second limit.
+- In-game configuration GUI (press **O**).
+
+## Configuration
+Settings are saved to `config/cc.json`.
+
+## Notes
+This mod does not include any anti-cheat evasion behavior.

@@ -1,0 +1,10 @@
+{
+  "key.cc.open_config": "Open Crystal Clicker Config",
+  "key.categories.cc": "Crystal Clicker",
+  "screen.cc.title": "Crystal Clicker",
+  "option.cc.enabled": "Enabled: %s",
+  "option.cc.max_cps": "Max crystals/sec: %s",
+  "option.cc.min_cps_factor": "Min speed factor: %s",
+  "option.cc.misclick_chance": "Misclick chance: %s",
+  "button.cc.done": "Done"
+}
