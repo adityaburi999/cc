@@ -16,6 +16,13 @@ public class AutoCrystalConfig {
     private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cc.json");
     private static final Logger LOGGER = LoggerFactory.getLogger("CrystalClicker");
 
+    public static final double MAX_CPS_MIN = 2.0;
+    public static final double MAX_CPS_MAX = 20.0;
+    public static final double MIN_FACTOR_MIN = 0.3;
+    public static final double MIN_FACTOR_MAX = 1.0;
+    public static final double MISCLICK_MIN = 0.0;
+    public static final double MISCLICK_MAX = 0.3;
+
     public boolean enabled = true;
     public double maxCps = 12.0;
     public double minCpsFactor = 0.65;
@@ -55,18 +62,20 @@ public class AutoCrystalConfig {
     }
 
     private void normalize() {
-        if (maxCps < 1.0) {
-            maxCps = 1.0;
+        if (maxCps < MAX_CPS_MIN) {
+            maxCps = MAX_CPS_MIN;
+        } else if (maxCps > MAX_CPS_MAX) {
+            maxCps = MAX_CPS_MAX;
         }
-        if (minCpsFactor < 0.1) {
-            minCpsFactor = 0.1;
-        } else if (minCpsFactor > 1.0) {
-            minCpsFactor = 1.0;
+        if (minCpsFactor < MIN_FACTOR_MIN) {
+            minCpsFactor = MIN_FACTOR_MIN;
+        } else if (minCpsFactor > MIN_FACTOR_MAX) {
+            minCpsFactor = MIN_FACTOR_MAX;
         }
-        if (misclickChance < 0.0) {
-            misclickChance = 0.0;
-        } else if (misclickChance > 0.5) {
-            misclickChance = 0.5;
+        if (misclickChance < MISCLICK_MIN) {
+            misclickChance = MISCLICK_MIN;
+        } else if (misclickChance > MISCLICK_MAX) {
+            misclickChance = MISCLICK_MAX;
         }
     }
 }

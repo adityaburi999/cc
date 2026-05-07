@@ -1,6 +1,6 @@
 package com.adityaburi999.cc.client;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
@@ -13,7 +13,6 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 
 public class AutoCrystalController {
-    private final Random random = new Random();
     private boolean active;
     private int pendingStartRights;
     private boolean nextLeft;
@@ -37,7 +36,7 @@ public class AutoCrystalController {
             return;
         }
 
-        boolean misclick = random.nextDouble() < config.misclickChance;
+        boolean misclick = ThreadLocalRandom.current().nextDouble() < config.misclickChance;
         if (pendingStartRights > 0) {
             if (!misclick) {
                 performRightClick(client);
@@ -63,7 +62,7 @@ public class AutoCrystalController {
     private void scheduleNext(AutoCrystalConfig config) {
         double minCps = config.minCps();
         double maxCps = Math.max(minCps, config.maxCps);
-        double cps = minCps + (random.nextDouble() * (maxCps - minCps));
+        double cps = minCps + (ThreadLocalRandom.current().nextDouble() * (maxCps - minCps));
         long delayNanos = (long) (1_000_000_000L / cps);
         nextActionAtNanos = System.nanoTime() + delayNanos;
     }

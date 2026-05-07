@@ -10,12 +10,6 @@ import net.minecraft.client.gui.widget.SliderWidget;
 import net.minecraft.text.Text;
 
 public class ConfigScreen extends Screen {
-    private static final double MAX_CPS_MIN = 2.0;
-    private static final double MAX_CPS_MAX = 20.0;
-    private static final double MIN_FACTOR_MIN = 0.3;
-    private static final double MIN_FACTOR_MAX = 1.0;
-    private static final double MISCLICK_MIN = 0.0;
-    private static final double MISCLICK_MAX = 0.3;
 
     private final Screen parent;
     private final AutoCrystalConfig config;
@@ -37,21 +31,21 @@ public class ConfigScreen extends Screen {
         }).dimensions(centerX - 100, y, 200, 20).build());
 
         y += 24;
-        addDrawableChild(createSlider(centerX - 100, y, MAX_CPS_MIN, MAX_CPS_MAX,
+        addDrawableChild(createSlider(centerX - 100, y, AutoCrystalConfig.MAX_CPS_MIN, AutoCrystalConfig.MAX_CPS_MAX,
             () -> config.maxCps,
             value -> config.maxCps = value,
             value -> Text.translatable("option.cc.max_cps", formatNumber(value))
         ));
 
         y += 24;
-        addDrawableChild(createSlider(centerX - 100, y, MIN_FACTOR_MIN, MIN_FACTOR_MAX,
+        addDrawableChild(createSlider(centerX - 100, y, AutoCrystalConfig.MIN_FACTOR_MIN, AutoCrystalConfig.MIN_FACTOR_MAX,
             () -> config.minCpsFactor,
             value -> config.minCpsFactor = value,
             value -> Text.translatable("option.cc.min_cps_factor", formatNumber(value))
         ));
 
         y += 24;
-        addDrawableChild(createSlider(centerX - 100, y, MISCLICK_MIN, MISCLICK_MAX,
+        addDrawableChild(createSlider(centerX - 100, y, AutoCrystalConfig.MISCLICK_MIN, AutoCrystalConfig.MISCLICK_MAX,
             () -> config.misclickChance,
             value -> config.misclickChance = value,
             value -> Text.translatable("option.cc.misclick_chance", formatPercent(value))
